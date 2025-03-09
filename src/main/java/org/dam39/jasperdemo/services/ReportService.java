@@ -6,6 +6,7 @@ import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import org.dam39.jasperdemo.database.SQLDatabaseManager;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import java.io.FileInputStream;
@@ -50,7 +51,7 @@ public class ReportService {
             }
 
             // Carga el archivo del informe Jasper (.jasper) desde el sistema de archivos
-            InputStream reportStream = new FileInputStream("src/main/resources/reports/" + reportName + ".jasper");
+            InputStream reportStream = new ClassPathResource("reports/" + reportName + ".jasper").getInputStream();
 
             // Verifica si el archivo del informe existe y se cargó correctamente
             if (reportStream == null) {
@@ -85,7 +86,7 @@ public class ReportService {
 
 
             // Carga el archivo del informe Jasper (.jasper) desde el sistema de archivos
-            InputStream reportStream = new FileInputStream("src/main/resources/reports/" + reportName + ".jasper");
+            InputStream reportStream = new ClassPathResource("reports/" + reportName + ".jasper").getInputStream();
 
             // Verifica si el archivo del informe existe y se cargó correctamente
             if (reportStream == null) {
